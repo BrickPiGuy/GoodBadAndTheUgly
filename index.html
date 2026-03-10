@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Good, The Bad, and The Ugly of Vibe Coding</title>
+  <meta name="description" content="An interactive talk deck on the benefits, risks, and responsible framework for vibe coding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise-layer" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-kicker">Conference Deck</span>
+      <h1>Vibe Coding</h1>
+    </div>
+
+    <div class="controls" aria-label="Deck controls">
+      <button id="prevBtn" class="control-btn" type="button" aria-label="Previous slide">Prev</button>
+      <button id="nextBtn" class="control-btn" type="button" aria-label="Next slide">Next</button>
+      <button id="overviewBtn" class="control-btn" type="button" aria-label="Toggle overview">Overview</button>
+      <button id="autoplayBtn" class="control-btn" type="button" aria-label="Toggle autoplay">Autoplay</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="deck" class="deck" aria-live="polite">
+      <article class="slide active" data-title="Opening" data-theme="sunburst">
+        <p class="eyebrow">Act 01</p>
+        <h2>The Good, The Bad, and The Ugly of Vibe Coding</h2>
+        <p class="lead">A spaghetti-western view of AI-native software development: what it unlocked, what it broke, and what comes next.</p>
+        <figure class="opening-image-wrap fragment">
+          <img class="opening-image" src="ChatGPT%20Image%20Mar%206,%202026,%2010_26_38%20AM.png" alt="Spaghetti-western themed artwork for The Good, The Bad, and The Ugly of Vibe Coding">
+        </figure>
+        <ul class="checklist">
+          <li class="fragment">The Good: democratization and speed</li>
+          <li class="fragment">The Bad: volatility without discipline</li>
+          <li class="fragment">The Ugly: long-term skill and system risks</li>
+        </ul>
+      </article>
+
+      <article class="slide" data-title="What Is Vibe Coding?" data-theme="ember">
+        <p class="eyebrow">Act 02</p>
+        <h2>What Is Vibe Coding?</h2>
+        <p class="lead">Prompt-driven development where natural language becomes a primary interface for building software through conversational iteration.</p>
+        <div class="pill-grid">
+          <div class="pill fragment">
+            <h3>Origins</h3>
+            <p>Emerged in 2024 to 2025 with GPT-4+, Claude, Copilot, and open-weight assistants.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Shift</h3>
+            <p>From explicit syntax authoring to intent-first generation and rapid revision.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Result</h3>
+            <p>Programming became more expressive, exploratory, accessible, and creative.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" data-title="Why It Exploded in 2025" data-theme="lagoon">
+        <p class="eyebrow">Act 03</p>
+        <h2>Why It Exploded in 2025</h2>
+        <div class="bars">
+          <div class="bar fragment" style="--w: 94%"><span>Time To Prototype</span><strong>-94%</strong></div>
+          <div class="bar fragment" style="--w: 88%"><span>Syntax Friction</span><strong>-88%</strong></div>
+          <div class="bar fragment" style="--w: 82%"><span>Solo Builder Throughput</span><strong>+82%</strong></div>
+        </div>
+        <p class="caption fragment">Indie tools shipped in days, MVPs in hours, and hackathons became AI-native build sprints.</p>
+      </article>
+
+      <article class="slide" data-title="The Good" data-theme="sunburst">
+        <p class="eyebrow">Act 04</p>
+        <h2>The Good</h2>
+        <p class="lead">Vibe coding lowered intimidation barriers and unlocked software creation for students, designers, analysts, and non-programmers.</p>
+        <div class="pill-grid">
+          <div class="pill fragment">
+            <h3>Psychological Shift</h3>
+            <p>Flow state over formal structure. Momentum over documentation.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Democratization</h3>
+            <p>Broader participation in building products and automations.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Innovation</h3>
+            <p>Faster idea loops turned experimentation into a default behavior.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" data-title="The Bad" data-theme="ember">
+        <p class="eyebrow">Act 05</p>
+        <h2>The Bad</h2>
+        <p class="lead">Accessibility without discipline creates volatility: people can ship systems they do not fully understand.</p>
+        <ul class="checklist">
+          <li class="fragment"><strong>Illusion of competence:</strong> generate, run, deploy without grasping complexity or architecture.</li>
+          <li class="fragment"><strong>Best practices sidelined:</strong> code review, threat modeling, and test rigor become optional.</li>
+          <li class="fragment"><strong>Security externalities:</strong> hardcoded secrets, weak validation, and over-permissioned APIs.</li>
+        </ul>
+      </article>
+
+      <article class="slide" data-title="The Ugly" data-theme="midnight">
+        <p class="eyebrow">Act 06</p>
+        <h2>The Ugly</h2>
+        <p class="lead">If the model always writes, designs, and debugs, deep engineering intuition can atrophy over time.</p>
+        <div class="pill-grid">
+          <div class="pill fragment">
+            <h3>Skill Atrophy</h3>
+            <p>Prompt operators can emerge where engineers should be formed.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Epistemic Fragility</h3>
+            <p>Teams may build on faith without understanding trade-offs or assumptions.</p>
+          </div>
+          <div class="pill fragment">
+            <h3>Software Entropy</h3>
+            <p>Systems work today but decay fast under scale and changing requirements.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" data-title="Case Study" data-theme="lagoon">
+        <p class="eyebrow">Act 07</p>
+        <h2>Case Study: Secure vs Insecure AI Code</h2>
+        <div class="compare-grid">
+          <div class="code-card fragment">
+            <h3>Insecure Pattern</h3>
+            <pre><code>app.get("/admin", (req, res) => {
+  if (req.query.token === "dev-secret") {
+    return res.json(loadAllUsers());
+  }
+  res.status(401).end();
+});</code></pre>
+            <p>Hardcoded secret, query-string auth, and no audit trail.</p>
+          </div>
+          <div class="code-card fragment">
+            <h3>Responsible Pattern</h3>
+            <pre><code>app.get("/admin", requireRole("admin"), async (req, res) => {
+  const data = await userService.listForAdmin(req.user.id);
+  audit.log("admin_read", { actor: req.user.id });
+  res.json(data);
+});</code></pre>
+            <p>Role-based access, service boundary, and auditable behavior.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" data-title="Augmented Craftsman" data-theme="sunburst">
+        <p class="eyebrow">Act 08</p>
+        <h2>The Augmented Craftsman</h2>
+        <p class="lead">Do not reject vibe coding. Discipline it. AI is a power tool, not a substitute for mastery.</p>
+        <ul class="checklist">
+          <li class="fragment">Understand fundamentals before delegating implementation</li>
+          <li class="fragment">Maintain architectural ownership and explicit rationale</li>
+          <li class="fragment">Use AI deliberately with verification, testing, and review gates</li>
+        </ul>
+      </article>
+
+      <article class="slide" data-title="Responsible Framework" data-theme="ember">
+        <p class="eyebrow">Act 09</p>
+        <h2>A Framework for Responsible Vibe Coding</h2>
+        <div class="framework-grid">
+          <div class="framework-step fragment"><strong>1. Intent</strong><p>State requirements and constraints before prompting.</p></div>
+          <div class="framework-step fragment"><strong>2. Inspect</strong><p>Validate logic, complexity, and dependency choices.</p></div>
+          <div class="framework-step fragment"><strong>3. Harden</strong><p>Add tests, static checks, auth boundaries, and monitoring.</p></div>
+          <div class="framework-step fragment"><strong>4. Own</strong><p>Document rationale and keep humans accountable for outcomes.</p></div>
+        </div>
+      </article>
+
+      <article class="slide" data-title="Final Challenge" data-theme="midnight">
+        <p class="eyebrow">Act 10</p>
+        <h2>Are You a Prompt Operator or an Engineer?</h2>
+        <p class="lead">The future belongs to builders who can move at AI speed while preserving rigor, security, and craft.</p>
+        <div class="shortcut-card fragment">
+          <h3>Call To Action</h3>
+          <p>Adopt AI acceleration.</p>
+          <p>Reject AI complacency.</p>
+          <p>Practice augmented craftsmanship.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <aside id="overview" class="overview" aria-hidden="true"></aside>
+
+  <footer class="statusbar">
+    <div class="meta">
+      <span id="slideCount">1 / 10</span>
+      <span id="slideTitle">Opening</span>
+    </div>
+    <div class="progress-track" role="progressbar" aria-label="Slide progress" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
