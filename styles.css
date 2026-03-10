@@ -296,8 +296,10 @@ h2 {
 .opening-image {
   display: block;
   width: min(100%, 520px);
-  max-height: 210px;
-  object-fit: cover;
+  height: clamp(180px, 26vh, 280px);
+  object-fit: contain;
+  object-position: center top;
+  background: rgba(255, 248, 236, 0.92);
   border-radius: 14px;
   border: 1px solid rgba(31, 25, 20, 0.2);
   box-shadow: 0 10px 28px rgba(43, 24, 11, 0.22);
@@ -616,7 +618,7 @@ body.high-contrast .overview {
 
   .opening-image {
     width: 100%;
-    max-height: 170px;
+    height: clamp(150px, 28vh, 240px);
   }
 
   .pill-grid {
