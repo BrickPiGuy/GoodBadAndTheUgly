@@ -9,12 +9,40 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const overviewBtn = document.getElementById("overviewBtn");
 const autoplayBtn = document.getElementById("autoplayBtn");
+const contrastBtn = document.getElementById("contrastBtn");
 
 let current = 0;
 let isOverviewOpen = false;
 let autoplayTimer = null;
 let touchStartX = 0;
 const swipeThreshold = 44;
+
+function toggleHighContrast(forceState) {
+  const shouldEnable = typeof forceState === "boolean"
+    ? forceState
+    : !document.body.classList.contains("high-contrast");
+
+  document.body.classList.toggle("high-contrast", shouldEnable);
+  contrastBtn.classList.toggle("is-active", shouldEnable);
+  contrastBtn.setAttribute("aria-pressed", String(shouldEnable));
+
+  try {
+    localStorage.setItem("deck-high-contrast", shouldEnable ? "on" : "off");
+  } catch {
+    // Ignore storage errors in restricted browsing modes.
+  }
+}
+
+function initHighContrastPreference() {
+  try {
+    const stored = localStorage.getItem("deck-high-contrast");
+    if (stored === "on") {
+      toggleHighContrast(true);
+    }
+  } catch {
+    // Ignore storage errors in restricted browsing modes.
+  }
+}
 
 function getFragments(slideIndex) {
   return Array.from(slides[slideIndex].querySelectorAll(".fragment"));
@@ -165,7 +193,7 @@ function initFromHash() {
 }
 
 function onKeyDown(event) {
-  if (isOverviewOpen && event.key !== "o" && event.key !== "Escape") {
+  if (isOverviewOpen && !["o", "O", "c", "C", "Escape"].includes(event.key)) {
     return;
   }
 
@@ -194,6 +222,11 @@ function onKeyDown(event) {
       event.preventDefault();
       toggleOverview();
       break;
+    case "c":
+    case "C":
+      event.preventDefault();
+      toggleHighContrast();
+      break;
     case "Escape":
       if (isOverviewOpen) {
         event.preventDefault();
@@ -209,6 +242,7 @@ prevBtn.addEventListener("click", prevStep);
 nextBtn.addEventListener("click", nextStep);
 overviewBtn.addEventListener("click", () => toggleOverview());
 autoplayBtn.addEventListener("click", toggleAutoplay);
+contrastBtn.addEventListener("click", () => toggleHighContrast());
 
 deck.addEventListener("touchstart", (event) => {
   touchStartX = event.changedTouches[0].clientX;
@@ -231,5 +265,6 @@ window.addEventListener("keydown", onKeyDown);
 window.addEventListener("hashchange", initFromHash);
 
 buildOverview();
+initHighContrastPreference();
 initFromHash();
 updateUI();
