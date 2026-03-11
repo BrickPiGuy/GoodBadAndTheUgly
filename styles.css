@@ -331,6 +331,10 @@ h2 {
 
 .poster-encore .opening-poster {
   height: clamp(220px, 40vh, 360px);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .opening-poster {
