@@ -343,10 +343,10 @@ h2 {
   height: clamp(260px, 52vh, 460px);
   object-fit: contain;
   object-position: center;
-  background: rgba(255, 248, 236, 0.82);
+  background: transparent;
   border-radius: 14px;
-  border: 1px solid rgba(31, 25, 20, 0.2);
-  box-shadow: 0 10px 28px rgba(43, 24, 11, 0.22);
+  border: none;
+  box-shadow: none;
 }
 
 .pill-grid {
